@@ -2,10 +2,13 @@
 Examples of bitcoin source
 
 # SHA-256哈希算法实现测试
+
 编译：
+
 g++ -o .\testsha256 .\testsha256.cpp -std=gnu++0x
 
 运行：
+
 .\testsha256
 
 结果：
