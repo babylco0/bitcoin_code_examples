@@ -70,4 +70,22 @@ Examples of bitcoin source
 
 ---
 
+# testripemd160.cpp
+
+编译：
+
+>  g++ -o .\testripemd160 .\testripemd160.cpp -std=gnu++0x
+
+运行：
+
+> .\testripemd160
+
+结果:
+
+> Data: 2b0995c0703c96d694f03a8987f89d387459fc359694737547a75764989c5e16</br>
+> RIPEMD-160: 154de7cabbb5822075e92c57a27ca3ef3e8be5c
+
+---
+
+
 
