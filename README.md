@@ -23,10 +23,8 @@ Examples of bitcoin source
 > .\testhash256
 
 输出：
-> Data: 00154de7cabbb5822075e92c57a27ca3ef3e8be50c
-
-> SHA-256 [1]: ab7d579d497d75ab7e337212345635a4c071c249c6e8ec7532d2ea4d82290e6
-
+> Data: 00154de7cabbb5822075e92c57a27ca3ef3e8be50c</br>
+> SHA-256 [1]: ab7d579d497d75ab7e337212345635a4c071c249c6e8ec7532d2ea4d82290e6</br>
 > SHA-256 [2]: fc897c201ef5e99b2e37853e84dd041bebe6f831f462729de2af27e4ab9ea7e
 
 ---
@@ -38,8 +36,7 @@ Examples of bitcoin source
 > .\testbase58
 
 结果：
-> Encode: 12weWzbq5jT7c3MHbHD2WP2uLXEUtaGLXZ
-
+> Encode: 12weWzbq5jT7c3MHbHD2WP2uLXEUtaGLXZ</br>
 > Decode: 00154de7cabbb5822075e92c57a27ca3ef3e8be50cfc897c20
 
 ---
