@@ -87,5 +87,25 @@ Examples of bitcoin source
 
 ---
 
+# testhash160.cpp
+
+编译：
+
+>  g++ -o .\testhash160 .\testhash160.cpp -std=gnu++0x
+
+运行：
+
+> .\testhash160
+
+结果:
+
+> Data: 0340a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e</br>
+> Hash-160: 154de7cabbb5822075e92c57a27ca3ef3e8be5c
+
+---
+
+
+---
+
 
 
