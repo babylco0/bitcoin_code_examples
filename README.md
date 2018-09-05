@@ -30,7 +30,7 @@ SHA-256 [2]: fc897c201ef5e99b2e37853e84dd041bebe6f831f462729de2af27e4ab9ea7e
 # testbase58.cpp
 编译:
 
-<p>g++ -o .\testbase58 .\testbase58.cpp -std=gnu++0x</p>
+> g++ -o .\testbase58 .\testbase58.cpp -std=gnu++0x
 
 运行：
 
@@ -38,7 +38,7 @@ SHA-256 [2]: fc897c201ef5e99b2e37853e84dd041bebe6f831f462729de2af27e4ab9ea7e
 
 结果：
 
-Encode: 12weWzbq5jT7c3MHbHD2WP2uLXEUtaGLXZ
-Decode: 00154de7cabbb5822075e92c57a27ca3ef3e8be50cfc897c20
+>Encode: 12weWzbq5jT7c3MHbHD2WP2uLXEUtaGLXZ
+>Decode: 00154de7cabbb5822075e92c57a27ca3ef3e8be50cfc897c20
 
 
