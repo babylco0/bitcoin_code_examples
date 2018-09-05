@@ -30,7 +30,7 @@ SHA-256 [2]: fc897c201ef5e99b2e37853e84dd041bebe6f831f462729de2af27e4ab9ea7e
 # testbase58.cpp
 编译:
 
-g++ -o .\testbase58 .\testbase58.cpp -std=gnu++0x
+<p>g++ -o .\testbase58 .\testbase58.cpp -std=gnu++0x</p>
 
 运行：
 
