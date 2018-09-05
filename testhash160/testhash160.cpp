@@ -64,7 +64,7 @@ int main(int argc, char *argv[]){
         std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
     }
 	std::cout<<std::endl;
-    std::cout<<"RIPEMD-160: ";
+    std::cout<<"Hash-160: ";
     uint160 hash160 = Hash160(vdat.begin(), vdat.end());
     for(int i = 0; i < hash160.size(); i++){
 		unsigned char* iter = (unsigned char*)&hash160 + i;
