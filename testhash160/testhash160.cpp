@@ -58,16 +58,14 @@ int main(int argc, char *argv[]){
     }
     std::vector<unsigned char> vdat(udat, udat+sizeof(udat));
     std::cout<<"Data: "; 
-    for(std::vector<unsigned char>::iterator iter = vdat.begin(); iter != vdat.end(); ++iter)
-    {
+    for(std::vector<unsigned char>::iterator iter = vdat.begin(); iter != vdat.end(); ++iter){
         std::cout<<std::setw(2);
         std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
     }
     std::cout<<std::endl;
     std::cout<<"Hash-160: ";
     uint160 hash160 = Hash160(vdat.begin(), vdat.end());
-    for(int i = 0; i < hash160.size(); i++)
-    {
+    for(int i = 0; i < hash160.size(); i++){
 	unsigned char* iter = (unsigned char*)&hash160 + i;
 	std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
     }
