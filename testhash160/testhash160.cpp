@@ -57,19 +57,20 @@ int main(int argc, char *argv[]){
         udat[i/2] = hex2int(hexstr[i]) * 16 + hex2int(hexstr[i + 1]);
     }
     std::vector<unsigned char> vdat(udat, udat+sizeof(udat));
-	std::cout<<"Data: "; 
-	for(std::vector<unsigned char>::iterator iter = vdat.begin(); iter != vdat.end(); ++iter)
+    std::cout<<"Data: "; 
+    for(std::vector<unsigned char>::iterator iter = vdat.begin(); iter != vdat.end(); ++iter)
     {
         std::cout<<std::setw(2);
         std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
     }
-	std::cout<<std::endl;
+    std::cout<<std::endl;
     std::cout<<"Hash-160: ";
     uint160 hash160 = Hash160(vdat.begin(), vdat.end());
-    for(int i = 0; i < hash160.size(); i++){
-		unsigned char* iter = (unsigned char*)&hash160 + i;
-		std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
-	}
-	std::cout<<std::endl; 
+    for(int i = 0; i < hash160.size(); i++)
+    {
+	unsigned char* iter = (unsigned char*)&hash160 + i;
+	std::cout<<std::setfill('0')<<std::hex<<(int)(*iter);
+    }
+    std::cout<<std::endl; 
     return 0;
 }
