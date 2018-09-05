@@ -1,6 +1,8 @@
+---
 # bitcoin_code_examples
 
 Examples of bitcoin source
+
 ---
 # testsha256.cpp
 编译：
