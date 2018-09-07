@@ -104,6 +104,22 @@ Examples of bitcoin source
 
 ---
 
+# testpubkey.c.cpp
+
+编译：
+
+>  gcc .\testpubkey.c .\secp256k1.c -o .\testpubkey
+
+运行：
+
+> .\testpubkey
+
+结果:
+
+> Private key: 9a9a6539856be209b8ea2adbd155c0919646d108515b60b7b13d6a79f1ae5174</br>
+> Public key : [X(188ac3f1c6bbbc336fdc33cb5e605ff7c3ee2d36249933b0322220a616a11fb3):Y(40a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e)]</br>
+> Compressed key  : 0340a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e</br>
+> Uncompressed key: 0440a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e188ac3f1c6bbbc336fdc33cb5e605ff7c3ee2d36249933b0322220a616a11fb3
 
 ---
 
