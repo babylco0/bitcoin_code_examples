@@ -123,5 +123,21 @@ Examples of bitcoin source
 
 ---
 
+# testsha512.cpp
+
+编译：
+
+>  g++ .\testsha512.cpp -o .\testsha512
+
+运行：
+
+> .\testsha512
+
+结果:
+
+> Data: 2b0995c0703c96d694f03a8987f89d387459fc359694737547a75764989c5e16</br>
+> SHA-512: f679fba58d54b19627b717d192656cf928bdeab5f201006fc219d6c56105f086baebbacc8fb5b8a83eae873a73ee0b417fdbb4098948749c410ee4166411cf3d
+
+---
 
 
