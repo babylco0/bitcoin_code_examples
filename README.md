@@ -142,6 +142,26 @@ Examples of bitcoin source
 
 # TestKey
 
+使用系统头文件<endian.h>
+
+```
+//  use system endian.h   //
+#define HAVE_ENDIAN_H 1
+#define HAVE_DECL_HTOBE16 1
+#define HAVE_DECL_HTOLE16 1
+#define HAVE_DECL_BE16TOH 1
+#define HAVE_DECL_LE16TOH 1
+#define HAVE_DECL_HTOBE32 1
+#define HAVE_DECL_HTOLE32 1
+#define HAVE_DECL_BE32TOH 1
+#define HAVE_DECL_LE32TOH 1
+#define HAVE_DECL_HTOBE64 1
+#define HAVE_DECL_HTOLE64 1
+#define HAVE_DECL_BE64TOH 1
+#define HAVE_DECL_LE64TOH 1
+////////////////////////////
+```
+
 编译：
 
 > make
