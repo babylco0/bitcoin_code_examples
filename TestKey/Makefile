@@ -1,8 +1,8 @@
 
 CPP      = g++ 
 CC       = gcc 
-OBJ      = main.o src/key.o src/pubkey.o src/uint256.o src/utilstrencodings.o src/arith_uint256.o secp256k1/src/secp256k1.o inc/crypto/ripemd160.o inc/crypto/sha256.o inc/crypto/sha512.o inc/crypto/hmac_sha512.o src/hash.o
-LINKOBJ  = main.o src/key.o src/pubkey.o src/uint256.o src/utilstrencodings.o src/arith_uint256.o secp256k1/src/secp256k1.o inc/crypto/ripemd160.o inc/crypto/sha256.o inc/crypto/sha512.o inc/crypto/hmac_sha512.o src/hash.o
+OBJ      = main.o src/key.o src/pubkey.o src/uint256.o src/utilstrencodings.o src/arith_uint256.o secp256k1/src/secp256k1.o inc/crypto/ripemd160.o inc/crypto/sha256.o inc/crypto/sha512.o inc/crypto/hmac_sha512.o src/hash.o inc/script/standard.o inc/script/script.o inc/script/script_error.o
+LINKOBJ  = main.o src/key.o src/pubkey.o src/uint256.o src/utilstrencodings.o src/arith_uint256.o secp256k1/src/secp256k1.o inc/crypto/ripemd160.o inc/crypto/sha256.o inc/crypto/sha512.o inc/crypto/hmac_sha512.o src/hash.o inc/script/standard.o inc/script/script.o inc/script/script_error.o
 LIBS     = -L"/usr/lib" -L"/usr/local/lib"
 INCS     = -I"./inc" -I"./secp256k1/include"
 CXXINCS  = -I"./inc" -I"./secp256k1/include"
@@ -56,3 +56,13 @@ inc/crypto/hmac_sha512.o: inc/crypto/hmac_sha512.cpp
 
 src/hash.o: src/hash.cpp
 	$(CPP) -c src/hash.cpp -o src/hash.o $(CXXFLAGS)
+
+inc/script/standard.o: inc/script/standard.cpp
+	$(CPP) -c inc/script/standard.cpp -o inc/script/standard.o $(CXXFLAGS)
+
+inc/script/script.o: inc/script/script.cpp
+	$(CPP) -c inc/script/script.cpp -o inc/script/script.o $(CXXFLAGS)
+
+inc/script/script_error.o: inc/script/script_error.cpp
+	$(CPP) -c inc/script/script_error.cpp -o inc/script/script_error.o $(CXXFLAGS)
+
