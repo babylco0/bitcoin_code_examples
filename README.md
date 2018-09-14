@@ -168,4 +168,12 @@ Examples of bitcoin source
 
 ---
 
+# Script测试
+
+编译前需安装boost
+
+> sudo apt install libboostX.XX-all-dev
+
+---
+
 
