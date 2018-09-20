@@ -1,0 +1,29 @@
+EXPORTS
+    CURVE_B @1 DATA
+    main @2
+    secp256k1_context_clone @3
+    secp256k1_context_create @4
+    secp256k1_context_destroy @5
+    secp256k1_context_randomize @6
+    secp256k1_context_set_error_callback @7
+    secp256k1_context_set_illegal_callback @8
+    secp256k1_ec_privkey_negate @9
+    secp256k1_ec_privkey_tweak_add @10
+    secp256k1_ec_privkey_tweak_mul @11
+    secp256k1_ec_pubkey_combine @12
+    secp256k1_ec_pubkey_create @13
+    secp256k1_ec_pubkey_negate @14
+    secp256k1_ec_pubkey_parse @15
+    secp256k1_ec_pubkey_serialize @16
+    secp256k1_ec_pubkey_tweak_add @17
+    secp256k1_ec_pubkey_tweak_mul @18
+    secp256k1_ec_seckey_verify @19
+    secp256k1_ecdsa_sign @20
+    secp256k1_ecdsa_signature_normalize @21
+    secp256k1_ecdsa_signature_parse_compact @22
+    secp256k1_ecdsa_signature_parse_der @23
+    secp256k1_ecdsa_signature_serialize_compact @24
+    secp256k1_ecdsa_signature_serialize_der @25
+    secp256k1_ecdsa_verify @26
+    secp256k1_nonce_function_default @27 DATA
+    secp256k1_nonce_function_rfc6979 @28 DATA
