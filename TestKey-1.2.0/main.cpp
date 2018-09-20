@@ -14,13 +14,13 @@
 #include <base58.h>
 #include <chainparams.h>
 
-// ´òÓ¡n¸öx×Ö·û 
+// æ‰“å°nä¸ªxå­—ç¬¦ 
 void print_line(int n, char x){
 	std::cout<<std::endl<<std::setw(n);
     std::cout<<std::setfill(x)<<" "<<std::endl;
 }
 
-// ´òÓ¡ÈİÆ÷
+// æ‰“å°å®¹å™¨
 template<typename T1>
 void print_vector(const T1 pos, int size){
 	unsigned char *begin = (unsigned char*)&pos[0];
@@ -32,9 +32,9 @@ void print_vector(const T1 pos, int size){
 } 
 
 /**
- * ²âÊÔÃÜÔ¿¶Ô
- * Ë½Ô¿£º9a9a6539856be209b8ea2adbd155c0919646d108515b60b7b13d6a79f1ae5174
- * ¹«Ô¿£º0340a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e
+ * æµ‹è¯•å¯†é’¥å¯¹
+ * ç§é’¥ï¼š9a9a6539856be209b8ea2adbd155c0919646d108515b60b7b13d6a79f1ae5174
+ * å…¬é’¥ï¼š0340a609475afa1f9a784cad0db5d5ba7dbaab2147a5d7b9bbde4d1334a0e40a5e
  */ 
 std::vector<unsigned char> TestPriKey = {
 										0x9a, 0x9a, 0x65, 0x39, 0x85, 0x6b, 0xe2, 0x09,
@@ -100,7 +100,7 @@ std::vector<unsigned char> TestPubKeyM = {0x03,
 										0x8b, 0x48, 0x41, 0x4a, 0x28, 0x77, 0xed, 0xdd
 										};																				
 
-// ¹«Ë½Ô¿²âÊÔ³ÌĞò 
+// å…¬ç§é’¥æµ‹è¯•ç¨‹åº 
 int main_keytest() {
 
 	CPrivKey LoadPriKey;	 
@@ -108,12 +108,12 @@ int main_keytest() {
 	//priKey.MakeNewKey(true);
 	ECCVerifyHandle eccVerifyHandle ;
 	ECC_Start();
-	// ÉèÖÃË½Ô¿Êı¾İ 
+	// è®¾ç½®ç§é’¥æ•°æ® 
 	priKey.Set(TestPriKey.begin(), TestPriKey.end(), true);	
 	LoadPriKey = priKey.GetPrivKey();
 	std::cout<<std::setw(2)<<std::hex;
     std::cout<<std::setfill('0');
-	// ´òÓ¡Ë½Ô¿ 
+	// æ‰“å°ç§é’¥ 
 	std::cout<<"Private key [0x"<<priKey.size()<<"]:";
 	for(int ii = 0; ii < priKey.size(); ii++)
     {
@@ -121,9 +121,9 @@ int main_keytest() {
         std::cout<<(int)(*(priKey.begin() + ii));
     }
     print_line(20, '-');
-	// »ñÈ¡¹«Ô¿ 
+	// è·å–å…¬é’¥ 
 	CPubKey pubKey(TestPubKey);	
-	// ´òÓ¡¹«Ô¿ 
+	// æ‰“å°å…¬é’¥ 
 	std::cout<<"Public key  [0x"<<pubKey.size()<<"]:";
 	for(int ii = 0; ii < pubKey.size(); ii++)
     {
@@ -131,14 +131,14 @@ int main_keytest() {
         std::cout<<std::setfill('0')<<std::hex<<(int)(*(pubKey.begin() + ii));
     }
 	print_line(20, '-');
-	// ¼ì²â¹«Ë½Ô¿ÊÇ·ñÆ¥Åä 
+	// æ£€æµ‹å…¬ç§é’¥æ˜¯å¦åŒ¹é… 
 	if(priKey.VerifyPubKey(pubKey)){
 		std::cout<<"***** Private Key vs. Public Key Match. *****";
 	}
 	print_line(20, '-');
-	// »ñÈ¡¹«Ô¿ Hash-160
+	// è·å–å…¬é’¥ Hash-160
 	CKeyID hash160 = pubKey.GetID(); 
-	// ´òÓ¡¹«Ô¿ Hash-160
+	// æ‰“å°å…¬é’¥ Hash-160
 	std::cout<<"Hash-160    [0x"<<hash160.size()<<"]:";
 	for(int ii = 0; ii < hash160.size(); ii++)
     {
@@ -146,9 +146,9 @@ int main_keytest() {
         std::cout<<std::setfill('0')<<std::hex<<(int)(*(hash160.begin() + ii));
     }
 	print_line(20, '-');
-	// »ñÈ¡¹«Ô¿¹şÏ£Öµ 
+	// è·å–å…¬é’¥å“ˆå¸Œå€¼ 
 	uint256 hash = pubKey.GetHash();
-	// ´òÓ¡¹«Ô¿¹şÏ£Öµ  
+	// æ‰“å°å…¬é’¥å“ˆå¸Œå€¼  
 	std::cout<<"Hash        [0x"<<hash.size()<<"]:";
 	for(int ii = 0; ii < hash.size(); ii++)
     {
@@ -158,7 +158,7 @@ int main_keytest() {
 	print_line(20, '-');
 	std::vector<unsigned char> vchSig; 
 	priKey.Sign(hash, vchSig);
-	// ´òÓ¡Ç©Ãû
+	// æ‰“å°ç­¾å
 	std::cout<<"Sign        [0x"<<vchSig.size()<<"]:"; 
 	for(int ii = 0; ii < vchSig.size(); ii++){
 		std::cout<<std::setw(2);
@@ -166,14 +166,14 @@ int main_keytest() {
 	}
 	print_line(20, '-');
 	
-	// Ğ£ÑéÇ©Ãû 
+	// æ ¡éªŒç­¾å 
 	if(pubKey.CheckLowS(vchSig) && pubKey.Verify(hash, vchSig)){
 		std::cout<<"**** Public Key Verify Sign Ok. ****";
 	}
 	print_line(20, '-');
-	// »ñÈ¡·ÇÑ¹Ëõ¹«Ô¿ 
+	// è·å–éå‹ç¼©å…¬é’¥ 
 	pubKey.Decompress();
-	// ´òÓ¡¹«Ô¿ 
+	// æ‰“å°å…¬é’¥ 
 	std::cout<<"**** Public key Decompressed ****"<<std::endl;
 	std::cout<<"Public key  [0x"<<pubKey.size()<<"]:";
 	for(int ii = 0; ii < pubKey.size(); ii++)
@@ -185,7 +185,7 @@ int main_keytest() {
 	
 	priKey.SignCompact(hash, vchSig);
 	pubKey.RecoverCompact(hash, vchSig);
-	// ´òÓ¡¹«Ô¿ 
+	// æ‰“å°å…¬é’¥ 
 	std::cout<<"**** Public key Recovered From SignCompact ****"<<std::endl;
 	std::cout<<"Public key  [0x"<<pubKey.size()<<"]:";
 	for(int ii = 0; ii < pubKey.size(); ii++)
@@ -198,7 +198,7 @@ int main_keytest() {
 		std::cout<<"**** Load private key ok. ****";
 	}
 	print_line(20, '-');
-	// »ñÈ¡×ÓË½Ô¿ 
+	// è·å–å­ç§é’¥ 
 	CKey keyChild;
 	CPubKey pubkeyChild;
 	ChainCode ccChild;
@@ -210,7 +210,7 @@ int main_keytest() {
         std::cout<<std::setfill('0')<<std::hex<<nChild<<"]";
         print_line(20, '-');
 		if(priKey.Derive(keyChild, ccChild, nChild, cc)){
-			// ´òÓ¡Ë½Ô¿ 
+			// æ‰“å°ç§é’¥ 
 			std::cout<<"Private key  [0x"<<pubKey.size()<<"]:";
 			for(int ii = 0; ii < keyChild.size(); ii++)
 		    {
@@ -220,7 +220,7 @@ int main_keytest() {
 		    std::cout<<std::endl;
 		}
 		if(pubKey.Derive(pubkeyChild, ccChild, nChild, cc)){
-			// ´òÓ¡¹«Ô¿ 
+			// æ‰“å°å…¬é’¥ 
 			std::cout<<"Public key   [0x"<<pubkeyChild.size()<<"]:";
 			for(int ii = 0; ii < pubkeyChild.size(); ii++)
 		    {
@@ -228,7 +228,7 @@ int main_keytest() {
 		        std::cout<<std::setfill('0')<<std::hex<<(int)(*(pubkeyChild.begin() + ii));
 		    }
 		}
-		// ÑéÖ¤¹«Ô¿Ë½Ô¿ÊÇ·ñÆ¥Åä 
+		// éªŒè¯å…¬é’¥ç§é’¥æ˜¯å¦åŒ¹é… 
 		if(!priKey.VerifyPubKey(pubKey)){
 			break;
 		}
@@ -239,13 +239,13 @@ int main_keytest() {
 	ECC_Stop();
 	return 0;
 }
-/* ¹«Ë½Ô¿²âÊÔ³ÌĞò½áÊø */ 
+/* å…¬ç§é’¥æµ‹è¯•ç¨‹åºç»“æŸ */ 
 
-// ½Å±¾Éú³É²âÊÔ³ÌĞò
+// è„šæœ¬ç”Ÿæˆæµ‹è¯•ç¨‹åº
 int main_scripttest(){	
-	// ÉèÖÃ¹«Ô¿ 
+	// è®¾ç½®å…¬é’¥ 
 	CPubKey pubKey(TestPubKey);	
-	/** ´Ó¹«Ô¿Éú³ÉÒ»¸öP2PK½Å±¾ */
+	/** ä»å…¬é’¥ç”Ÿæˆä¸€ä¸ªP2PKè„šæœ¬ */
 	CScript P2PK = GetScriptForRawPubKey(pubKey);
 	std::cout<<"**** P2PK:"<<std::endl;
 	for(int ii = 0; ii < P2PK.size(); ii++){
@@ -253,7 +253,7 @@ int main_scripttest(){
 		std::cout<<std::setfill('0')<<std::hex<<(int)(*(P2PK.begin() + ii));
 	}
 	print_line(20, '-'); 
-	/** Éú³ÉÒ»¸öP2WPKH½Å±¾ */
+	/** ç”Ÿæˆä¸€ä¸ªP2WPKHè„šæœ¬ */
 	CScript P2WPKH = GetScriptForWitness(P2PK);
 	std::cout<<"**** P2WPKH:"<<std::endl;	
 	for(int ii = 0; ii < P2WPKH.size(); ii++){
@@ -261,7 +261,7 @@ int main_scripttest(){
 		std::cout<<std::setfill('0')<<std::hex<<(int)(*(P2WPKH.begin() + ii));
 	}
 	print_line(20, '-');
-	/* Éú³ÉÒ»¸ö½Å±¾¹«Ô¿ */
+	/* ç”Ÿæˆä¸€ä¸ªè„šæœ¬å…¬é’¥ */
 	CScript scriptPubKey = GetScriptForDestination(P2WPKH);
 	std::cout<<"**** Bitcoin scriptPubKey:"<<std::endl;
 	if(!scriptPubKey.IsPayToScriptHash()){
@@ -272,7 +272,7 @@ int main_scripttest(){
 		std::cout<<std::setfill('0')<<std::hex<<(int)(*(scriptPubKey.begin() + ii));
 	}
 	print_line(20, '-'); 
-	/** Éú³ÉÒ»¸ö¶àÇ©Ãû½Å±¾ */
+	/** ç”Ÿæˆä¸€ä¸ªå¤šç­¾åè„šæœ¬ */
 	std::vector<CPubKey> keys ={CPubKey(TestPubKeyA), CPubKey(TestPubKeyB), CPubKey(TestPubKeyM)};
 	CScript mnScript = GetScriptForMultisig(2, keys);
 	std::cout<<"**** Multisig script:"<<std::endl;
@@ -281,7 +281,7 @@ int main_scripttest(){
 		std::cout<<std::setfill('0')<<std::hex<<(int)(*(mnScript.begin() + ii));
 	}
 	print_line(20, '-');
-	/* ´Ó¶àÇ©Ãû½Å±¾Éú³É½Å±¾¹«Ô¿ */
+	/* ä»å¤šç­¾åè„šæœ¬ç”Ÿæˆè„šæœ¬å…¬é’¥ */
 	scriptPubKey = GetScriptForDestination(mnScript);
 	std::cout<<"**** Bitcoin scriptPubKey:"<<std::endl;
 	for(int ii = 0; ii < scriptPubKey.size(); ii++){
@@ -289,10 +289,10 @@ int main_scripttest(){
 		std::cout<<std::setfill('0')<<std::hex<<(int)(*(scriptPubKey.begin() + ii));
 	}
 	print_line(20, '-');
-	/* ½âÎö¶àÇ©Ãû½Å±¾ĞÅÏ¢ */
-	txnouttype typeRet;							// ½Å±¾ÀàĞÍ 
-	std::vector<CTxDestination> addressRet;		// ½Å±¾µØÖ·ĞÅÏ¢ 
-	int nRequiredRet;							// ĞèÒªÇ©ÃûÊıÁ¿ 
+	/* è§£æå¤šç­¾åè„šæœ¬ä¿¡æ¯ */
+	txnouttype typeRet;							// è„šæœ¬ç±»å‹ 
+	std::vector<CTxDestination> addressRet;		// è„šæœ¬åœ°å€ä¿¡æ¯ 
+	int nRequiredRet;							// éœ€è¦ç­¾åæ•°é‡ 
 	if(ExtractDestinations(mnScript, typeRet, addressRet, nRequiredRet)){
 		std::cout<<"**** Type:"<<GetTxnOutputType(typeRet)<<std::endl;
 		std::cout<<"**** Required: "<<nRequiredRet<<" / "<<addressRet.size();	
@@ -313,17 +313,17 @@ int main_scripttest(){
 	}
 	return 0;
 } 
-/** ½Å±¾Éú³É²âÊÔ³ÌĞò½áÊø */ 
+/** è„šæœ¬ç”Ÿæˆæµ‹è¯•ç¨‹åºç»“æŸ */ 
 
-// ÃÜÔ¿´æ´¢²âÊÔ³ÌĞò
+// å¯†é’¥å­˜å‚¨æµ‹è¯•ç¨‹åº
 int main_keystoretest(){
 	ECCVerifyHandle eccVerifyHandle ;
 	ECC_Start();
-	// ´´½¨Ò»¸öÃÜÔ¿´æ´¢ 
+	// åˆ›å»ºä¸€ä¸ªå¯†é’¥å­˜å‚¨ 
 	CBasicKeyStore keystore; 
 	CKey priKey;
 	CPubKey pubKey;
-	// Ìí¼ÓÒ»¸öÃÜÔ¿¶Ô
+	// æ·»åŠ ä¸€ä¸ªå¯†é’¥å¯¹
 	priKey.Set(TestPriKey.begin(), TestPriKey.end(), true);
 	pubKey.Set(TestPubKey.begin(), TestPubKey.end());
 	keystore.AddKeyPubKey(priKey, pubKey);
@@ -333,7 +333,7 @@ int main_keystoretest(){
 	priKey.Set(TestPriKeyB.begin(), TestPriKeyB.end(), true);
 	pubKey.Set(TestPubKeyB.begin(), TestPubKeyB.end());
 	keystore.AddKeyPubKey(priKey, pubKey);
-	// »ñÈ¡ËùÓĞÃÜÔ¿¶Ô 
+	// è·å–æ‰€æœ‰å¯†é’¥å¯¹ 
 	CKey priKey1;
 	CPubKey pubKey1;
 	int count = 0;
@@ -352,25 +352,25 @@ int main_keystoretest(){
 
 	pubKey.Set(TestPubKey.begin(), TestPubKey.end());
 	CKeyID address = pubKey.GetID(); 
-	// Ìí¼Ó½Å±¾
+	// æ·»åŠ è„šæœ¬
 	CScript script = GetScriptForDestination(WitnessV0KeyHash(address)); 
 	CScriptID hash(script);
-	// ¸ù¾İ½Å±¾»ñÈ¡key 
+	// æ ¹æ®è„šæœ¬è·å–key 
 	address = GetKeyForDestination(keystore, script);
 	std::cout<<"**** Address: ";
 	print_vector(address.begin(), address.size());
-	// Ìí¼ÓÃÜÔ¿¶ÔÊ±ÒÑÌí¼Ó¶ÔÓ¦µÃ½Å±¾£¬ËùÒÔ´æ´¢ÖĞÒÑ´æÔÚ½Å±¾ 
+	// æ·»åŠ å¯†é’¥å¯¹æ—¶å·²æ·»åŠ å¯¹åº”å¾—è„šæœ¬ï¼Œæ‰€ä»¥å­˜å‚¨ä¸­å·²å­˜åœ¨è„šæœ¬ 
 	if(keystore.HaveCScript(hash)){
 		std::cout<<"**** Have script: ";
 		print_vector(hash.begin(), hash.size());
 	}
-	// Í¨¹ı½Å±¾¹şÏ£Öµ»ñÈ¡½Å±¾	
+	// é€šè¿‡è„šæœ¬å“ˆå¸Œå€¼è·å–è„šæœ¬	
 	if(keystore.GetCScript(hash, script)){
 		std::cout<<"**** Get script: ";
 		print_vector(script, script.size());
 	} 
 	
-	// Ö»¿´½Å±¾
+	// åªçœ‹è„šæœ¬
 	if(!keystore.HaveWatchOnly(script)){
 		keystore.AddWatchOnly(script);
 		if(keystore.HaveWatchOnly(script)){
@@ -379,7 +379,7 @@ int main_keystoretest(){
 		}		
 	}
 		
-	// ²é¿´IsmineÀàĞÍ 
+	// æŸ¥çœ‹Ismineç±»å‹ 
 	std::cout<<"Ismine type: "<<IsMine(keystore, script)<<std::endl;
 	//std::cout<<EncodeBase58Check(CScriptID(script))<<std::endl;
 	ECC_Stop();
@@ -388,18 +388,18 @@ int main_keystoretest(){
 
 // Base58Check Encode/Decode Destination
 int main_bs58check(){
-	// Ñ¡ÔñÖ÷Íø²ÎÊı 
+	// é€‰æ‹©ä¸»ç½‘å‚æ•° 
 	SelectParams(CBaseChainParams::MAIN);
-	// ÉèÖÃ²âÊÔÃÜÔ¿
+	// è®¾ç½®æµ‹è¯•å¯†é’¥
 	CKey priKey;
 	CPubKey pubKey;
 	priKey.Set(TestPriKey.begin(), TestPriKey.end(), true);
 	pubKey.Set(TestPubKey.begin(), TestPubKey.end());
 	CKeyID address = pubKey.GetID(); 
-	// ´òÓ¡¹«Ô¿ID
+	// æ‰“å°å…¬é’¥ID
 	std::cout<<"**** Pubkey ID:";
 	print_vector(address.begin(), address.size());
-	// ´òÓ¡±àÂëµÄ±ÈÌØ±ÒµØÖ· 
+	// æ‰“å°ç¼–ç çš„æ¯”ç‰¹å¸åœ°å€ 
 	std::cout<<"**** Encode Destination ****"<<std::endl; 
 	std::string destPubKey = EncodeDestination(address);
 	std::cout<<"****   P2PK Address: ";
@@ -408,16 +408,24 @@ int main_bs58check(){
 	std::string destP2WPKH = EncodeDestination(P2WPKH);
 	std::cout<<"**** P2WPKH Address: ";
 	std::cout<<destP2WPKH<<std::endl; 
+	std::string bech32P2WPKH = EncodeDestination(WitnessV0KeyHash(address));
+	std::cout<<"**** Bech32 P2WPKH Address: ";
+	std::cout<<bech32P2WPKH<<std::endl; 	
+	uint256 hash;
+    CSHA256().Write(&P2WPKH[0], P2WPKH.size()).Finalize(hash.begin());
+	std::string bech32P2WSH = EncodeDestination(WitnessV0ScriptHash(hash));
+	std::cout<<"****  Bech32 P2WSH Address: ";
+	std::cout<<bech32P2WSH<<std::endl; 
 	print_line(100, '=');
-	std::cout<<"**** Decode Destination ****"<<std::endl; 	
-	// ½âÂëP2PKµØÖ· 
+	std::cout<<"**** Decode Destination ****"<<std::endl; 
+	// è§£ç P2PKåœ°å€ 
 	if(IsValidDestinationString(destPubKey)){
 		CTxDestination ctxDest = DecodeDestination(destPubKey);
 		CScript scriptPubKey = GetScriptForDestination(ctxDest);
 		std::cout<<"****   P2PK scriptPubKey: ";
 		print_vector(scriptPubKey, scriptPubKey.size());
 	}
-	// ½âÂëP2WPKµØÖ· 
+	// è§£ç P2WPKåœ°å€ 
 	CChainParams params = *CreateChainParams(CBaseChainParams::MAIN);
 	if(IsValidDestinationString(destP2WPKH, params)){
 		CTxDestination ctxDest = DecodeDestination(destP2WPKH);
@@ -425,13 +433,27 @@ int main_bs58check(){
 		std::cout<<"**** P2WPKH scriptPubKey: ";
 		print_vector(scriptPubKey, scriptPubKey.size());
 	}
+	// è§£ç bech32æ ¼å¼åœ°å€ 
+	if(IsValidDestinationString(bech32P2WPKH)){
+		CTxDestination ctxDest = DecodeDestination(bech32P2WPKH);
+		CScript scriptPubKey = GetScriptForDestination(ctxDest);
+		std::cout<<"**** Bech32 P2WPKH scriptPubKey: ";
+		print_vector(scriptPubKey, scriptPubKey.size());
+	}
+	if(IsValidDestinationString(bech32P2WSH)){
+		CTxDestination ctxDest = DecodeDestination(bech32P2WSH);
+		CScript scriptPubKey = GetScriptForDestination(ctxDest);
+		std::cout<<"****  Bech32 P2WSH scriptPubKey: ";
+		print_vector(scriptPubKey, scriptPubKey.size());
+	}
+	
 	return 0;
 }
-/** Base58Check Encode/Decode Destination ½áÊø*/
+/** Base58Check Encode/Decode Destination ç»“æŸ*/
 
-/** ÃÜÔ¿´æ´¢²âÊÔ³ÌĞò½áÊø */ 
+/** å¯†é’¥å­˜å‚¨æµ‹è¯•ç¨‹åºç»“æŸ */ 
 int main(int argc, char** argv){
-	/** ¹«Ë½Ô¿²âÊÔ³ÌĞò */
+	/** å…¬ç§é’¥æµ‹è¯•ç¨‹åº */
 	/* 
 	print_line(100, '='); 
 	std::cout<<"Private Key & Public Key";
@@ -439,7 +461,7 @@ int main(int argc, char** argv){
 	main_keytest();
 	print_line(100, '=');
 	*/
-	/** ½Å±¾Éú³É²âÊÔ³ÌĞò */ 
+	/** è„šæœ¬ç”Ÿæˆæµ‹è¯•ç¨‹åº */ 
 	/*
 	print_line(100, '=');
 	std::cout<<"Script";
@@ -447,7 +469,7 @@ int main(int argc, char** argv){
 	main_scripttest();
 	print_line(100, '=');
 	*/
-	/** ÃÜÔ¿´æ´¢ */ 
+	/** å¯†é’¥å­˜å‚¨ */ 
 	/*
 	print_line(100, '=');
 	std::cout<<"Keystore";
