@@ -187,5 +187,10 @@ Examples of bitcoin source
 增加Base58Check Encode/Decode Destination测试程序
 
 ---
+# TestKey-1.3.0
+
+增加Decode Hex Transaction测试程序
+
+---
 
 
